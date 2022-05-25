@@ -1,0 +1,33 @@
+	Cadastro
+
+Nome
+
+Posição Hierárquica
+(Aprendiz, Mago, Mago Sênior)
+
+Se aprendiz: professor, registro de mago
+
+
+
+Senha
+
+
+	Login
+
+RM(Registro de Mago)
+Senha
+
+	Biblioteca
+
+Reservar livro:
+
+Nome do livro
+Dia da Reserva
+Tipo de livro
+
+
+	Perfil
+
+feitiços aprendidas: (o professor define quais feitiços voce aprendeu)
+
+
