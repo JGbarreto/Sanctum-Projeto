@@ -1,0 +1,21 @@
+:root {
+    --cor-dourado: #A48C39;
+    --cor-vermelho: #6A1B1B;
+}
+
+body {
+    margin: 0;
+}
+
+#header {
+    width: 100%;
+    height: 80px;
+    background-color: var(--cor-vermelho);
+    display: flex;
+}
+
+.detalheHeader {
+    height: 100%;
+    width: 10%;
+    background-color: var(--cor-dourado);
+}
