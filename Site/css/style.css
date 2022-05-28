@@ -3,19 +3,77 @@
     --cor-vermelho: #6A1B1B;
 }
 
+/*resetando as margens*/
+
 body {
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
+/*padronizando o container da página*/
+
+.container {
+    width: 90%;
+    height: 100%;
+}
+
+/*estilizando o header*/
 #header {
     width: 100%;
-    height: 80px;
+    height: 15vh;
     background-color: var(--cor-vermelho);
     display: flex;
+    justify-content: space-between;
+    color: white;
 }
+
 
 .detalheHeader {
     height: 100%;
-    width: 10%;
+    width: 1%;
     background-color: var(--cor-dourado);
 }
+
+#elementosHeader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#elementosHeader ul {
+    width: 40vw; 
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+}
+#elementosHeader #areaMagos {
+    font-weight: bold;
+
+}
+
+#elementosHeader img {
+    height: 14vh;
+}
+
+/*configuração do banner*/
+
+#banner {
+    background-image: url('/Imagens/sanctum\ background.jpg');
+    height:100vh;
+    background-size:cover;
+    
+    
+}
+
+
+
+/*primeira parte*/
+#fr1 {
+    height: 520px;
+    
+}
+
