@@ -15,6 +15,7 @@ body {
 .container {
     width: 90%;
     height: 100%;
+    margin:auto;
 }
 
 /*estilizando o header*/
@@ -25,6 +26,7 @@ body {
     display: flex;
     justify-content: space-between;
     color: white;
+    
 }
 
 
@@ -62,12 +64,19 @@ body {
 /*configuração do banner*/
 
 #banner {
-    background-image: url('/Imagens/sanctum\ background.jpg');
+    background: url('/Imagens/sanctum\ background\ blur.png');
     height:100vh;
     background-size:cover;
     
     
 }
+
+#banner h1 {
+    text-align: center;
+    
+}
+
+
 
 
 
