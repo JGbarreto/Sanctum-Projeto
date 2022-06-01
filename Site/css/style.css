@@ -3,13 +3,16 @@
     --cor-vermelho: #6A1B1B;
 }
 
-/*resetando as margens*/
+/*resetando as margens e configurando o padrão das paginas*/
 
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
-
+a {
+    text-decoration: none;
+    
+}
 /*padronizando o container da página*/
 
 .container {
@@ -25,8 +28,12 @@ body {
     background-color: var(--cor-vermelho);
     display: flex;
     justify-content: space-between;
-    color: white;
+   
     
+}
+
+#header a {
+    color: white;
 }
 
 
@@ -67,13 +74,56 @@ body {
     background: url('/Imagens/sanctum\ background\ blur.png');
     height:100vh;
     background-size:cover;
-    
+    text-align: center;
     
 }
 
 #banner h1 {
+    margin: auto;
+    width: 700px;
+    margin-top: 50px;
     text-align: center;
+    font-size: 60px;
     
+}
+#banner p {
+    margin-top: 100px;
+    font-size: 30px;
+}
+#banner .botoesBanner  {
+    margin: auto;
+    width: 500px;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.botaoVermelho {
+    background-color: var(--cor-vermelho);
+    color: white;
+}
+
+.botaoDourado {
+    background-color: var(--cor-dourado);
+    color: white;
+}
+
+#elementosBanner a {
+    
+    width: 200px;
+    border-radius: 15px;
+   
+}
+
+#banner .botaoDourado:hover {
+    background-color: #7a630e;
+    transition: 0.5s;
+}
+
+#banner .botaoVermelho:hover {
+    background-color: #440e0e;
+    transition: 0.5s;
 }
 
 
@@ -81,8 +131,28 @@ body {
 
 
 /*primeira parte*/
-#fr1 {
-    height: 520px;
+#sobre {
+    height: 450px;
+    text-align: center;
+}
+
+#sobre h1 {
+    margin-top: 50px;
+    
+    font-size: 45px;
+}
+
+#sobre p {
+    margin-top: 100px;
+    font-size: 23px;
+}
+
+#botaoHerois {
+    font-size:20px;
+    font-weight: bold;
     
 }
+
+
+
 
