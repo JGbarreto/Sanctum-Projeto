@@ -293,10 +293,14 @@ a {
 
 }
 
+#conteudo div {
+    border-radius: 10px;
+}
+
 #fr1, #fr3 {
     height: 100%;
     width: 20%;
-    border: solid yellow;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -325,10 +329,29 @@ a {
 #info {
     width: 90%;
     height: 20%;
-    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    
 }
 
+#infoNome {
+    color: var(--cor-dourado);
+    width: 65%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+#reputacao {
+    background-color: white;
+    width: 30%;
+    text-align: center;
+}
+
+#professores, #livros, #grafico, #reputacao {
+    border: var(--cor-dourado) solid 3px;
+}
 
 
 

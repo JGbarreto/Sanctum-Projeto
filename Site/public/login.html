@@ -41,7 +41,7 @@
                 <form>
                 <input placeholder="Entre com o seu RM" type="text" id="ipt_rm">
                 <input placeholder="Entre com a sua senha"type="text" id="ipt_senha">
-                <button onclick="">Entrar</button>
+                <button onclick="entrar()">Entrar</button>
         </form>
 
             </div>
@@ -52,3 +52,72 @@
         <img src="/Imagens/Logo Branco.png" alt="">
     </div>
 </html>
+
+<script>
+
+
+    function entrar() {
+        
+
+        var rmVar = ipt_rm.value;
+        var senhaVar = ipt_senha.value;
+
+        if (rmVar == "" || senhaVar == "") {
+            alert('Preencha todos os campos');
+            
+            return false;
+        }
+       
+
+        console.log("FORM LOGIN: ", rmVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                rmServer: rmVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.RM_USUARIO = json.rm;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.CARGO = json.cargo;
+                    sessionStorage.MESTRE = json.mestre;
+                    sessionStorage.rep = json.rep;
+
+                    
+                        window.location.href = 'telaMago.html';
+                     
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+                
+                resposta.text().then(texto => {
+                    console.error(texto);
+                   
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+</script>
