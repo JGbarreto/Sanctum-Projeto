@@ -268,5 +268,69 @@ a {
     transition: 0.5s;
 }
 
+/*tela dos magos*/
+
+/*header*/
+
+.headerDash {
+    background-color: var(--cor-vermelho);
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headerDash img{
+    height: 14vh;
+}
+
+/*fim header*/
+
+#conteudo {
+    background-color: #440e0e;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+
+}
+
+#fr1, #fr3 {
+    height: 100%;
+    width: 20%;
+    border: solid yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#fr2 {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#professores, #livros  {
+    width: 90%;
+    height: 90%;
+    background-color: white;
+}
+
+#grafico {
+    width: 90%;
+    height: 65%;
+    background-color: white;
+}
+
+#info {
+    width: 90%;
+    height: 20%;
+    background-color: white;
+}
+
+
+
+
+
 
 
