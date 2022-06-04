@@ -41,9 +41,9 @@
                 <form>
                 <input placeholder="Entre com o seu RM" type="text" id="ipt_rm">
                 <input placeholder="Entre com a sua senha"type="text" id="ipt_senha">
-                <button onclick="entrar()">Entrar</button>
+                
         </form>
-
+        <button onclick="entrar()">Entrar</button>
             </div>
         </div>
     </div>
@@ -98,17 +98,15 @@
                     sessionStorage.rep = json.rep;
 
                     
-                        window.location.href = 'telaMago.html';
+                    window.location = 'telaMago.html';
                      
                 });
 
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
-                
                 resposta.text().then(texto => {
                     console.error(texto);
-                   
                 });
             }
 

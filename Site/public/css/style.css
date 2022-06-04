@@ -94,7 +94,7 @@ a {
     /*configuração do banner*/
 
 #banner {
-    background: url('/Imagens/sanctum\ background\ blur.png');
+    background: url('/public/Imagens/sanctum\ background\ blur.png');
     height:100vh;
     background-size:cover;
     text-align: center;
@@ -251,7 +251,7 @@ a {
     margin-bottom: 20px;
     -webkit-text-stroke: 0.2px white;
 }
-#elementosBannerLogin .container form button{
+#elementosBannerLogin .container button{
     font-family: 'Poppins';
     font-size: 20px;
     color: white;
@@ -262,7 +262,7 @@ a {
     background-color: var(--cor-dourado);
 }
 
-#elementosBannerLogin .container form button:hover {
+#elementosBannerLogin .container button:hover {
     cursor: pointer;
     background-color: #7a630e;
     transition: 0.5s;
