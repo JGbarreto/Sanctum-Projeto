@@ -94,7 +94,7 @@ a {
     /*configuração do banner*/
 
 #banner {
-    background: url('/public/Imagens/sanctum\ background\ blur.png');
+    background: url('/Imagens/sanctum\ background\ blur.png');
     height:100vh;
     background-size:cover;
     text-align: center;

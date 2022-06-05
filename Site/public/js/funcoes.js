@@ -1,5 +1,5 @@
 // sessão
-function validarSessao() {
+/*function validarSessao() {
     // aguardar();
 
     var rm = sessionStorage.RM_USUARIO;
@@ -8,14 +8,19 @@ function validarSessao() {
 
     var nomeMago = document.getElementById("nomeMago");
     var cargoMago = document.getElementById("cargoMago")
-
-    if (rm != null && nome != null) {
+    var alunoProf = document.getElementById("alunoProf");
+   
+if (rm != null && nome != null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);
         nomeMago.innerHTML = nome;
         cargoMago.innerHTML = cargo;
         // finalizarAguardar();
     } else {
-        window.location = "../login.html";
+        window.location = "/public/login.html";
+    }
+
+    if (cargo == 'Mago Supremo' || cargo == 'Mago Sênior') {
+        alunoProf.innerHTML = 'Seus Alunos';
     }
 }
 
@@ -54,3 +59,4 @@ function fecharModal() {
     divModal.style.display = "none";
 }
 
+*/
