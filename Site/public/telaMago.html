@@ -16,12 +16,18 @@
 <body onload="validarSessao()">
 
     <div class="headerDash">
-        <img src="/Imagens/Logo Branco.png" alt="">
+        <img src="/public/Imagens/Logo Branco.png" alt="">
     </div>
     <div id="conteudo">
         <div id="fr1">
             <div id="professores">
                 <h3 id="alunoProf">Seu professor:</h3>
+                <div id="infoAlunos"></div>
+                <div id="infoProfessor">
+                <h4>Nome: <span id="nomeProfessor">professor</span></h4>
+                <h4>Cargo: <span id="cargoProfessor">mestre</span></h4>
+                <h4>Reputação: <span id="repProfessor">0</span></h4>
+                </div>
             </div>
         </div>
 
@@ -32,6 +38,7 @@
                 </div>
                 <div id="reputacao">
                     <h3>Reputação:</h3>
+                    <h1 id="rep">0</h1>
                 </div>
             </div>
             <div id="grafico">
@@ -41,7 +48,7 @@
         <div id="fr3">
             <div id="livros">
                 <h3>Livros Reservados:</h3>
-                <button class="botaoDourado">Reservar um Livro</button>
+                <a href="" class="botaoDourado">Reservar um Livro</a>
 
             </div>
         </div>
@@ -51,3 +58,97 @@
 </body>
 
 </html>
+
+<script>
+
+
+
+    var rm = sessionStorage.RM_USUARIO;
+    
+
+  
+    
+    //para exibir os alunos(se professor)
+if(sessionStorage.CARGO == "Mago Supremo" || sessionStorage.CARGO == "Mago Sênior") {
+    fetch("/Aluno/buscarAluno", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                rm: rm
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                for (var index = 0; index < 10; index++) {
+
+                resposta.json().then(json => {
+                    for (var index = 0; index < json.length; index++) {
+                            rmAluno = json[index].rm;
+                            nomeAluno = json[index].nome;
+                            cargoAluno = json[index].cargo;
+                            repAluno = json[index].rep;
+                            infoAlunos.innerHTML += `<div class="box_func">
+                                                    ID: ${rmAluno} <b>|</b> Nome: ${nome} <b>|</b> E-Mail: ${cargo} 
+                                                </div>`
+                        }
+                      
+                })
+            }
+
+            } else {
+
+                console.log("Houve um erro ao tentar buscar o professor!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+} else {
+    fetch("/professor/buscarProf", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                rm: rm
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO carregarProf()!")
+            console.log(resposta);
+
+            if (resposta.ok) {
+                
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    
+                    
+                    
+                    nomeProfessor.innerHTML = json.nomeProf;
+                    cargoProfessor.innerHTML = json.cargoProf;
+                    repProfessor.innerHTML = json.repProf;
+                    
+
+                    
+                     
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar buscar o professor!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+}
+</script>

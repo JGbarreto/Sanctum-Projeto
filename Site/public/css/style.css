@@ -349,8 +349,22 @@ a {
     text-align: center;
 }
 
+#reputacao h1 {
+    margin-top: 0;
+}
+#reputacao h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
 #professores, #livros, #grafico, #reputacao {
     border: var(--cor-dourado) solid 3px;
+}
+
+#livros a {
+    border-radius: 10px;
+    padding: 4px;
+    
 }
 
 
