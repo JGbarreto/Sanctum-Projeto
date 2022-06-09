@@ -80,21 +80,25 @@ if(sessionStorage.CARGO == "Mago Supremo" || sessionStorage.CARGO == "Mago Sêni
             })
         }).then(function (resposta) {
             if (resposta.ok) {
-                for (var index = 0; index < 10; index++) {
-
+                
                 resposta.json().then(json => {
+                    
+                        console.log(JSON.stringify(json));
+                        console.log(json);
+
                     for (var index = 0; index < json.length; index++) {
+
                             rmAluno = json[index].rm;
                             nomeAluno = json[index].nome;
                             cargoAluno = json[index].cargo;
                             repAluno = json[index].rep;
                             infoAlunos.innerHTML += `<div class="box_func">
-                                                    ID: ${rmAluno} <b>|</b> Nome: ${nome} <b>|</b> E-Mail: ${cargo} 
+                                                    ID: ${rmAluno} <b>|</b> Nome: ${nomeAluno} <b>|</b> E-Mail: ${cargoAluno} 
                                                 </div>`
                         }
                       
                 })
-            }
+            
 
             } else {
 
