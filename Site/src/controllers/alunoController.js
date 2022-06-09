@@ -8,22 +8,17 @@ function buscarAluno(req, res) {
         alunoModel.buscarAluno(rm)
             .then(
                 function (resultado) {
-                    console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-
-                    if (resultado.length == 1) {
-                        console.log(resultado);
-                        res.json(resultado[0]);
+                    if (resultado.length > 0) {
+                        res.status(200).json(resultado);
+                    } else {
+                        res.status(204).send("Nenhum resultado encontrado!")
                     }
-                }
-            ).catch(
-                function (erro) {
+                }).catch(function (erro) {
                     console.log(erro);
-                    console.log("\nHouve um erro ao buscar o Aluno! Erro: ", erro.sqlMessage);
+                    console.log("Houve um erro ao buscar os alunos.", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
+                });
+            }
 
     module.exports = {
         buscarAluno

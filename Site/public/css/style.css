@@ -320,6 +320,13 @@ a {
     background-color: white;
 }
 
+.box_aluno {
+    background-color: rgb(192, 192, 192);
+    margin-bottom: 20px;
+    width: 90%;
+    margin: 10px auto;
+}
+
 #grafico {
     width: 90%;
     height: 65%;

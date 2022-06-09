@@ -80,32 +80,24 @@ if(sessionStorage.CARGO == "Mago Supremo" || sessionStorage.CARGO == "Mago Sêni
             })
         }).then(function (resposta) {
             if (resposta.ok) {
-                for (var index = 0; index < 10; index++) {
-
+                
                 resposta.json().then(json => {
                     for (var index = 0; index < json.length; index++) {
                             rmAluno = json[index].rm;
                             nomeAluno = json[index].nome;
                             cargoAluno = json[index].cargo;
                             repAluno = json[index].rep;
-                            infoAlunos.innerHTML += `<div class="box_func">
-                                                    ID: ${rmAluno} <b>|</b> Nome: ${nome} <b>|</b> E-Mail: ${cargo} 
+                            infoAlunos.innerHTML += `<div class="box_aluno">
+                                                    ID: ${rmAluno} <br> Nome: ${nomeAluno} <br> Cargo: ${cargoAluno} 
                                                 </div>`
                         }
                       
                 })
-            }
+                
 
-            } else {
+            } 
 
-                console.log("Houve um erro ao tentar buscar o professor!");
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
+        
         })
 } else {
     fetch("/professor/buscarProf", {

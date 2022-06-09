@@ -29,7 +29,10 @@ if (rm != null && nome != null) {
         alunoProf.innerHTML = 'Seus Alunos';
         infoProfessor.style.display = "none"
         infoAlunos.display = "block"
-    } 
+    } else {
+        infoProfessor.style.display = "block"
+        infoAlunos.display = "none"
+    }
 }
 
 function limparSessao() {
