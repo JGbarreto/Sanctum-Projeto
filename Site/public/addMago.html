@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="headerDash">
+        <img src="/public/Imagens/Logo Branco.png" alt="">
+    </div>
+    <div id="conteudoAdd">
+
+        <h1>Registrar um Mago</h1>
+        <div>
+            Insira o nome do Mago:
+            <input type="text" id="ipt_nome" placeholder="Nome">
+            Insira o Cargo do Mago:
+            <select id="ipt_cargo">
+                <option value="Mago">Mago</option>
+                <option value="Mago Sênior">Mago Sênior</option>
+                <option value="Aprendiz">Aprendiz</option>
+            </select>
+            Digite uma senha:
+            <input type="password" name="" id="ipt_senha">
+            Confirme a senha:
+            <input type="password" name="" id="ipt_confirmar_senha">
+            Insira a reputação:
+            <input type="number" name="" id="ipt_reputacao">
+            <button onclick="cadastrar(sessionStorage.RM_USUARIO)">Cadastrar</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+
+    function cadastrar(rm) {
+        var nome = ipt_nome.value;
+        var senha = ipt_senha.value;
+        var cargo = ipt_cargo.value;
+        var reputacao = ipt_reputacao.value;
+        var passar = true;
+
+        if (ipt_nome.value == "" || ipt_senha.value == "" || ipt_confirmar_senha.value == "" || ipt_reputacao.value == "") {
+            passar = false;
+            alert('Preencha todos os campos para proseguir')
+        }
+        if ((ipt_senha.value).length < 8) {
+            passar = false;
+            alert('Sua senha deve ter pelo menos 8 caracteres')
+        }
+        if (ipt_confirmar_senha.value != ipt_senha.value) {
+            passar = false;
+            alert('As senhas não estão iguais')
+        }
+        if (ipt_reputacao.value > 10) {
+            passar = false;
+            alert('A reputação não pode ser maior que 10')
+        }
+        if (passar == true) {
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    rmServer: rm,
+                    nomeServer: nome,
+                    cargoServer: cargo,
+                    senhaServer: senha,
+                    repServer: reputacao
+                })
+            }).then(function (resposta) {
+
+                console.log(resposta)
+
+                if (resposta.ok) {
+                    
+                        
+                        alert(`Cadastro realizado com sucesso! O RM deste usuário é }`)
+                    
+
+                    
+
+                    
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                
+            });
+
+            return false;
+        }
+
+    }
+</script>
