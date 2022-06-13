@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="header">
+        <div class="detalheHeader"></div>
+        <div class="container">
+
+            <div id="elementosHeader">
+               <a href="index.html"> <img src="Imagens/Logo Branco.png" alt=""></a>
+                <ul>
+                    <a href="herois.html">
+                        <li>Heróis</li>
+                    </a>
+                    <a href="sanctum.html">
+                        <li>Conheça o Sanctum</li>
+                    </a>
+                    <a href="">
+                        <li>Eventos</li>
+                    </a>
+
+                </ul>
+                <a href="login.html"><span id="areaMagos">Area dos Magos</span></a>
+            </div>
+        </div>
+        <div class="detalheHeader"></div>
+    </div>
+    <div id="conteudoAdd">
+       
+
+        <h1>Marcar um Evento</h1>
+        <div>
+            Entre com o seu nome/nome da instituição:
+            <input type="text" id="ipt_nome" placeholder="Nome">
+            Entre com o email de contato:
+            <input type="text" id="ipt_email" placeholder="E-mail">
+            Insira o telefone de contato:
+            <input type="number" name="" id="ipt_telefone">
+            Insira a descrição do evento:
+            <textarea id="ipt_descricao" cols="30" rows="10"></textarea>
+            <button onclick="contatar()">Cadastrar</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function contatar() {
+        if (ipt_nome.value == "" || ipt_email.value == "" || ipt_telefone.value == "" || ipt_descricao.value =="") {
+            alert('Preencha todos os campos para continuar')
+        } else if ((ipt_email.value).indexOf('@') == -1) {
+            alert('Insira um email válido')
+        } else {
+            alert('Obrigado por querer conhecer o santuário! Nosso guardião do sanctum logo entrará em contato para discutir seu evento')
+        }
+    }
+</script>

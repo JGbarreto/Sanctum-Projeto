@@ -18,7 +18,7 @@ a {
 
 .container {
     width: 90%;
-    height: 100%;
+    height: 90%;
     margin:auto;
 }
 
@@ -186,6 +186,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+   
 }
 
 #botaoTexto {
@@ -260,7 +261,7 @@ a {
 /*inicio tela do sanctum*/
 #conteudoSanctum {
     background-color: #440e0e;
-    height: 150vh;
+    height: 390vh;
     color: white;
 }
 
@@ -278,6 +279,7 @@ a {
 .divArtefato img {
     border-radius: 10px;
     border: #A48C39 solid ;
+    max-height: 500px;
 }
 
 h2 {
@@ -299,6 +301,7 @@ h2 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    
 }
 #elementosBannerLogin .container form {
     display: flex;
@@ -399,6 +402,7 @@ h3 {
     width: 90%;
     height: 90%;
     background-color: white;
+    overflow: auto;
 }
 
 .box_aluno {
@@ -468,7 +472,7 @@ h3 {
 /*tela add mago*/
 #conteudoAdd {
     background-color: #440e0e;
-    height: 85vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -491,6 +495,14 @@ h3 {
     border-radius: 10px;
     font-size: 20px;
     background-color: white;
+}
+
+#conteudoAdd div textarea{
+    border-radius: 10px;
+    border: 3px var(--cor-dourado) solid;
+    font-size: 20px;
+    margin-bottom: 10px;
+    width: 250px;
 }
 
 #conteudoAdd h1 {
