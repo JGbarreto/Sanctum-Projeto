@@ -71,7 +71,7 @@ a {
 /*footer*/
 
 .footer {
-    background-image: url(/Imagens/Logo\ Branco\ background.png);
+    background-image: url(Imagens/Logo\ Branco\ background.png);
     background-repeat: no-repeat;
     background-size: 200vw;
     background-position: center;
@@ -217,6 +217,78 @@ a {
 
 /*fim index*/
 
+/*tela herois*/
+#herois {
+    background-color: #440e0e;
+    
+    height: 120vh;
+    
+}
+#herois .container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 20px;
+}
+#herois .container div {
+    margin-top: 50px;
+}
+#drEstranho p {
+    margin-left: 30px;
+}
+#wong p {
+    margin-right: 30px;
+}
+#wong {
+    text-align: right;
+    
+}
+#ancia p {
+    margin-left: 30px;
+}
+.divHeroi {
+    display: flex;
+}
+.divHeroi img{
+    
+    height: 200px;
+    border-radius: 10px;
+    border: #A48C39 solid ;
+}
+/*fim tela herois*/
+
+/*inicio tela do sanctum*/
+#conteudoSanctum {
+    background-color: #440e0e;
+    height: 150vh;
+    color: white;
+}
+
+.divArtefato {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divArtefato p {
+    font-size: 20px;
+    text-align: center;
+}
+
+.divArtefato img {
+    border-radius: 10px;
+    border: #A48C39 solid ;
+}
+
+h2 {
+    text-align: center;
+}
+
+#conteudoSanctum h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
 /*inicio tela de login*/
 #elementosBannerLogin {
     height: 100%;
@@ -277,10 +349,13 @@ a {
     height: 15vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
-.headerDash img{
+.headerDash #logo{
     height: 14vh;
+}
+.headerDash #sair {
+    height:38px;
 }
 
 /*fim header*/
@@ -431,10 +506,7 @@ h3 {
     color: var(--cor-dourado);
 }
 
-img {
-    height: 58px;
-    float: left;
-}
+
 
 #botaoVoltar {
     border-radius: 10px;
