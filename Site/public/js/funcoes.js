@@ -1,4 +1,4 @@
- // sessão
+/* // sessão
 function validarSessao() {
     // aguardar();
 
@@ -29,9 +29,11 @@ if (rm != null && nome != null) {
         alunoProf.innerHTML = 'Seus Alunos';
         infoProfessor.style.display = "none"
         infoAlunos.display = "block"
+        btAddMago.display = "block"
     } else {
         infoProfessor.style.display = "block"
         infoAlunos.display = "none"
+        btAddMago.display = "block"
     }
 }
 
@@ -62,4 +64,4 @@ function fecharModal() {
     divModal.style.display = "none";
 }
 
- 
+     */

@@ -9,6 +9,24 @@ function listar(rm, nome, cargo, senha, rep) {
     return database.executar(instrucao);
 }
 
+function reservar(rm, nomeLivro, genero, dataReserva) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function reservar()");
+    var instrucao = `
+    insert into reservalivro values (null, '${nomeLivro}', '${genero}', '${dataReserva}', ${rm});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function buscarLivro(rm) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscarLivros()");
+    var instrucao = `
+    select * from ReservaLivro where fkRm = ${rm};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function entrar(rm, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", rm, senha)
     var instrucao = `
@@ -36,4 +54,6 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    buscarLivro,
+    reservar
 };

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
 <body onload="validarSessao()">
 
     <div class="headerDash">
-        <img src="/public/Imagens/Logo Branco.png" alt="">
+        <img src="/Imagens/Logo Branco.png" alt="">
     </div>
     <div id="conteudo">
         <div id="fr1">
@@ -28,6 +29,7 @@
                 <h4>Cargo: <span id="cargoProfessor">mestre</span></h4>
                 <h4>Reputação: <span id="repProfessor">0</span></h4>
                 </div>
+                <a href="addMago.html" class="botaoDourado" id="btAddMago">Adicionar um Mago</a>
             </div>
         </div>
 
@@ -42,13 +44,15 @@
                 </div>
             </div>
             <div id="grafico">
-                <canvas></canvas>
+                <h3>Número de generos reservados</h3>
+                <canvas id="myChart"></canvas>
             </div>
         </div>
         <div id="fr3">
             <div id="livros">
                 <h3>Livros Reservados:</h3>
-                <a href="" class="botaoDourado">Reservar um Livro</a>
+                <div id="infoLivro"></div>
+                <a href="reserva.html" class="botaoDourado">Reservar um Livro</a>
 
             </div>
         </div>
@@ -61,7 +65,37 @@
 
 <script>
 
+const labels = [
+    'Magia sombria',
+    'Magia temporal',
+    'Entidades Místicas',
+    'Artefatos Mágicos',
+    'Dimensão Espelhada',
+    'Portais',
+    'Manipulação da Realidade'
 
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Número de reservas',
+      backgroundColor: '#A48C39',
+     
+      data: [20, 30, 15, 10, 20, 15, 30],
+    }]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {}
+  };
+
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
 
     
 var rm = sessionStorage.RM_USUARIO;
@@ -149,4 +183,43 @@ if(sessionStorage.CARGO == "Mago Supremo" || sessionStorage.CARGO == "Mago Sêni
         })
 
 }
+
+/*buscar livros reservados*/
+
+fetch("/usuarios/buscarLivro", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                rm: rm
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                
+                resposta.json().then(json => {
+                    
+                        console.log(JSON.stringify(json));
+                        console.log(json);
+
+                    for (var index = 0; index < json.length; index++) {
+
+                            idReserva = json[index].idReserva;
+                            nomeLivro = json[index].nomeLivro;
+                            genero = json[index].tipoMagia;
+                            dataReserva = json[index].dataReserva;
+                            infoLivro.innerHTML += `<div class="box_aluno">
+                                                    ID: ${idReserva} <br> Nome: ${nomeLivro} <br> Gênero: ${genero} <br>
+                                                    Data: ${dataReserva}
+                                                </div>`
+                        }
+                      
+                })
+            
+
+            } 
+
+        
+        })
+
 </script>

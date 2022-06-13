@@ -7,8 +7,57 @@ function testar(req, res) {
     res.json("ESTAMOS FUNCIONANDO!");
 }
 
+function reservar(req, res) {
+
+    var rm = req.body.rm;
+    var nomeLivro = req.body.nomeLivro;
+    var genero = req.body.genero;
+    var dataReserva = req.body.dataReserva;
+
+    usuarioModel.reservar(rm, nomeLivro, genero, dataReserva)
+        .then(function (resultado) {
+            
+                res.status(200).json(resultado);
+            
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a reserva do livro! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function buscarLivro(req, res) {
+
+    var rm = req.body.rm
+    
+
+    usuarioModel.buscarLivro(rm)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta dos livros! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function listar(req, res) {
-    usuarioModel.listar()
+
+    var rm = req.body.rmServer
+    var nome = req.body.nomeServer;
+    var cargo = req.body.cargoServer;
+    var senha = req.body.senhaServer;
+    var rep = req.body.repServer;
+
+    usuarioModel.listar(rm, nome, cargo, senha, rep)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -108,5 +157,7 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    buscarLivro,
+    reservar
 }

@@ -314,6 +314,12 @@ a {
     justify-content: space-evenly;
 }
 
+h3 {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
 #professores, #livros  {
     width: 90%;
     height: 90%;
@@ -373,6 +379,16 @@ a {
     padding: 4px;
     
 }
+#btAddMago {
+    border-radius: 10px;
+    padding: 2px;
+}
+
+#btAddMago:hover {
+    background-color:#7a630e;
+    transition: 0.5s;
+
+}
 
 /*tela add mago*/
 #conteudoAdd {
@@ -418,6 +434,17 @@ a {
 img {
     height: 58px;
     float: left;
+}
+
+#botaoVoltar {
+    border-radius: 10px;
+    padding: 3px;
+    margin-top: 15px;
+}
+
+#botaoVoltar:hover {
+    background-color:#7a630e;
+    transition: 0.5s;
 }
 
 

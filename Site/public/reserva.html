@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="headerDash">
+        <img src="/public/Imagens/Logo Branco.png" alt="">
+    </div>
+    <div id="conteudoAdd">
+<a href="telaMago.html" id="botaoVoltar" class="botaoDourado">Voltar</a>
+        <h1>Reservar Um livro</h1>
+        <div>
+            Insira o nome do Livro:
+            <input type="text" id="ipt_nomeLivro" placeholder="Nome">
+            Insira o gênero do livro:
+            <select id="ipt_genero">
+                <option value="Magia sombria">Magia sombria</option>
+                <option value="Magia temporal">Magia temporal</option>
+                <option value="Entidades Místicas">Entidades Místicas</option>
+                <option value="Artefatos Mágicos">Artefatos Mágicos</option>
+                <option value="Dimensão Espelhada">Dimensão Espelhada</option>
+                <option value="Portais">Portais</option>
+                <option value="Manipulação da Realidade">Manipulação da Realidade</option>
+            </select>
+            Insira a Data:
+            <input type="date" id="ipt_data" placeholder="Data">
+            <button onclick="reservar()">Cadastrar</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function reservar() {
+
+        var rm = sessionStorage.RM_USUARIO;
+        var nomeLivro = ipt_nomeLivro.value;
+        var genero = ipt_genero.value;
+        var dataReserva = ipt_data.value;
+
+        if ((ipt_nomeLivro.value).toUpperCase() == "DARKHOLD" && (sessionStorage.CARGO == "Mago" || sessionStorage.CARGO == "Aprendiz")) {
+            alert('Alerta - A pratica dos feitiços contidos neste livro é proibida, seu mestre foi alertado sobre a tentativa de reserva')
+        } else if (ipt_nomeLivro.value  == "" || ipt_genero.value == "" || ipt_data.value == "") {
+            alert('Preencha todos os campos')
+        } else {
+            fetch("/usuarios/reservar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    rm: rm,
+                    nomeLivro: nomeLivro,
+                    genero: genero,
+                    dataReserva: dataReserva
+                })
+            }).then(function (resposta) {
+
+                console.log(resposta)
+
+                if (resposta.ok) { 
+                    alert('Reserva realizada com sucesso, o bibliotecário foi informado sobre a sua reserva')
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar a reserva!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+        }
+    }
+</script>

@@ -7,7 +7,7 @@ router.get("/", function (req, res) {
     usuarioController.testar(req, res);
 });
 
-router.get("/listar", function (req, res) {
+router.post("/listar", function (req, res) {
     usuarioController.listar(req, res);
 });
 
@@ -15,7 +15,17 @@ router.get("/listar", function (req, res) {
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
     
-})
+});
+
+router.post("/buscarLivro", function (req, res) {
+    usuarioController.buscarLivro(req, res);
+    
+});
+
+router.post("/reservar", function (req, res) {
+    usuarioController.reservar(req, res);
+    
+});
 
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
